@@ -41,16 +41,12 @@ export default function AboutSection({ data }: { data?: any }) {
                   className="object-cover object-top"
                 />
               ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-taupe/40">
-                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="0.6">
-                    <circle cx="12" cy="8" r="5" />
-                    <path d="M2 22c0-5.5 4.5-10 10-10s10 4.5 10 10" />
-                  </svg>
-                  <p className="text-xs tracking-widest uppercase font-sans">
-                    Pastor's photo
-                  </p>
-                </div>
+                <Image
+                  src="/images/pastor-dokun.jpg"
+                  alt="Rev. Dokun Idowu"
+                  fill
+                  className="object-cover object-top"
+                />
               )}
 
               {/* Amber corner accent */}

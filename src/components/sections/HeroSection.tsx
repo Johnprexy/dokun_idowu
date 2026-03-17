@@ -48,17 +48,13 @@ export default function HeroSection({ data }: { data?: HeroData }) {
             priority
           />
         ) : (
-          /* Placeholder visual when no image uploaded */
-          <div className="absolute inset-0 flex flex-col items-center justify-center opacity-20 lg:opacity-30">
-            <svg width="120" height="120" viewBox="0 0 24 24" fill="none"
-              stroke="rgba(200,168,75,0.6)" strokeWidth="0.5">
-              <circle cx="12" cy="8" r="5" />
-              <path d="M2 22c0-5.5 4.5-10 10-10s10 4.5 10 10" />
-            </svg>
-            <p className="text-amber/40 text-xs tracking-widest uppercase mt-4 font-sans">
-              Pastor photo to be added
-            </p>
-          </div>
+          <Image
+            src="/images/pastor-dokun.jpg"
+            alt="Rev. Dokun Idowu"
+            fill
+            className="object-cover object-top opacity-35 lg:opacity-50"
+            priority
+          />
         )}
         {/* Gradient mask over image */}
         <div className="absolute inset-0 bg-gradient-to-r from-mahogany via-mahogany/60 to-transparent" />

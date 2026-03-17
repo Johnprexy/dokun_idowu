@@ -92,6 +92,34 @@ export default function FamilySection({ photos }: { photos?: FamilyPhoto[] }) {
                     transform: inView ? "scale(1)" : "scale(0.97)",
                   }}
                 >
+                  {/* Real photos for Rev. Dokun (slot 0) and Mrs. Tobore (slot 1) */}
+                  {i === 0 ? (
+                    <div className="relative aspect-[3/5] overflow-hidden">
+                      <Image
+                        src="/images/pastor-dokun.jpg"
+                        alt="Rev. Dokun Idowu"
+                        fill
+                        className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-mahogany/80 to-transparent p-4">
+                        <p className="text-parchment text-xs font-sans tracking-wide">Rev. Dokun Idowu</p>
+                        <p className="text-amber/70 text-[10px] font-sans tracking-widest uppercase">Executive Leader · Rhema Nigeria</p>
+                      </div>
+                    </div>
+                  ) : i === 1 ? (
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src="/images/tobore-idowu.jpg"
+                        alt="Mrs. Tobore Idowu"
+                        fill
+                        className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-mahogany/80 to-transparent p-4">
+                        <p className="text-parchment text-xs font-sans tracking-wide">Mrs. Tobore Idowu</p>
+                        <p className="text-amber/70 text-[10px] font-sans tracking-widest uppercase">Partner in Ministry</p>
+                      </div>
+                    </div>
+                  ) : (
                   <div
                     className={`relative bg-gradient-to-br from-sand/40 to-taupe/20 border border-sand/60
                                 flex flex-col items-center justify-center gap-3 text-taupe/50
@@ -99,55 +127,27 @@ export default function FamilySection({ photos }: { photos?: FamilyPhoto[] }) {
                                   i === 0 ? "aspect-[3/5]" : "aspect-[4/3]"
                                 }`}
                   >
-                    {/* Decorative lines */}
                     <div className="absolute inset-0 opacity-30"
                       style={{
                         backgroundImage: "linear-gradient(rgba(180,164,138,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(180,164,138,0.2) 1px,transparent 1px)",
                         backgroundSize: "30px 30px",
                       }}
                     />
-                    {/* Corner accents */}
                     <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-amber/30" />
                     <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-amber/30" />
-
-                    <svg
-                      className="relative z-10 opacity-30"
-                      width="32" height="32" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" strokeWidth="0.7"
-                    >
-                      {i === 0 ? (
-                        <>
-                          <circle cx="10" cy="7" r="4" />
-                          <circle cx="16" cy="11" r="3" />
-                          <path d="M2 20c0-4 3.2-7 8-7" />
-                          <path d="M10 20c0-3 2.5-5 6-5s6 2 6 5" />
-                        </>
-                      ) : i === 1 ? (
-                        <>
-                          <circle cx="12" cy="8" r="4" />
-                          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                        </>
-                      ) : (
-                        <>
-                          <rect x="3" y="3" width="18" height="18" rx="2" />
-                          <circle cx="8.5" cy="8.5" r="1.5" />
-                          <polyline points="21,15 16,10 5,21" />
-                        </>
-                      )}
+                    <svg className="relative z-10 opacity-30" width="32" height="32" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" strokeWidth="0.7">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <polyline points="21,15 16,10 5,21" />
                     </svg>
-
                     <div className="relative z-10 text-center px-4">
-                      <p className="text-xs font-sans font-medium tracking-wider text-umber/50 uppercase">
-                        {p.label}
-                      </p>
+                      <p className="text-xs font-sans font-medium tracking-wider text-umber/50 uppercase">{p.label}</p>
                       <p className="text-[10px] font-sans text-taupe/40 mt-1">{p.sub}</p>
                     </div>
-
-                    {/* "Add photo" prompt */}
-                    <p className="absolute bottom-3 left-0 right-0 text-center text-[9px] tracking-[0.16em] uppercase text-amber/30 font-sans">
-                      Upload via CMS
-                    </p>
+                    <p className="absolute bottom-3 left-0 right-0 text-center text-[9px] tracking-[0.16em] uppercase text-amber/30 font-sans">Upload via CMS</p>
                   </div>
+                  )}
                 </div>
               ))}
         </div>
