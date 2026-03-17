@@ -5,7 +5,7 @@ import siteSettings from "./sanity/schemas/siteSettings";
 import sermon from "./sanity/schemas/sermon";
 import { quoteSchema, familyPhotoSchema } from "./sanity/schemas/index";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder";
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "wz3mus1l";
 const dataset   = process.env.NEXT_PUBLIC_SANITY_DATASET   || "production";
 
 export default defineConfig({

@@ -1,26 +1,25 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "wz3mus1l";
 const dataset   = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 const apiVersion = "2024-01-01";
 
-// Safe client — only creates a real connection when projectId exists
-export const sanityClient = projectId
-  ? createClient({ projectId, dataset, apiVersion, useCdn: true })
-  : null;
+export const sanityClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: process.env.NODE_ENV === "production",
+});
 
-const builder = projectId && sanityClient
-  ? imageUrlBuilder(sanityClient)
-  : null;
+const builder = imageUrlBuilder(sanityClient);
 
 export function urlFor(source: any) {
-  return builder ? builder.image(source) : null;
+  return builder.image(source);
 }
 
-export const isConfigured = !!projectId;
+export const isConfigured = true;
 
-// ─── Queries ─────────────────────────────────────────────────────────────────
 export const heroQuery = `*[_type == "siteSettings"][0]{
   heroTagline, heroTitle, heroSubtitle, heroCta1, heroCta2,
   heroImage { asset->{ _id, url, metadata { dimensions } } }
@@ -49,9 +48,7 @@ export const mentorshipQuery = `*[_type == "siteSettings"][0]{
   mentorshipPillars[]{ icon, title, description }
 }`;
 
-// Safe fetch helper — returns fallback if not configured
 export async function safeFetch<T>(query: string, fallback: T): Promise<T> {
-  if (!sanityClient) return fallback;
   try {
     return await sanityClient.fetch<T>(query);
   } catch {
