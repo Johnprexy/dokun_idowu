@@ -1,4 +1,3 @@
-// sanity.config.ts
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
@@ -6,11 +5,14 @@ import siteSettings from "./sanity/schemas/siteSettings";
 import sermon from "./sanity/schemas/sermon";
 import { quoteSchema, familyPhotoSchema } from "./sanity/schemas/index";
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder";
+const dataset   = process.env.NEXT_PUBLIC_SANITY_DATASET   || "production";
+
 export default defineConfig({
-  name: "dokun-idowu",
-  title: "Rev. Dokun Idowu — CMS",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+  name:     "dokun-idowu",
+  title:    "Rev. Dokun Idowu — CMS",
+  projectId,
+  dataset,
   plugins: [
     structureTool({
       structure: (S) =>

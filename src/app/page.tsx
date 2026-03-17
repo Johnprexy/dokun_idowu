@@ -8,26 +8,20 @@ import MentorshipSection from "@/components/sections/MentorshipSection";
 import FamilySection from "@/components/sections/FamilySection";
 import ContactSection from "@/components/sections/ContactSection";
 
-// Revalidate every 60s (ISR)
 export const revalidate = 60;
 
 async function fetchData() {
-  // Only fetch from Sanity if projectId is configured
-  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-    return { hero: null, about: null, sermons: [], quotes: [], family: [], mentorship: null };
-  }
-
   try {
-    const { sanityClient, heroQuery, aboutQuery, sermonsQuery, quotesQuery, familyQuery, mentorshipQuery } =
+    const { safeFetch, heroQuery, aboutQuery, sermonsQuery, quotesQuery, familyQuery, mentorshipQuery } =
       await import("@/lib/sanity");
 
     const [hero, about, sermons, quotes, family, mentorship] = await Promise.all([
-      sanityClient.fetch(heroQuery).catch(() => null),
-      sanityClient.fetch(aboutQuery).catch(() => null),
-      sanityClient.fetch(sermonsQuery).catch(() => []),
-      sanityClient.fetch(quotesQuery).catch(() => []),
-      sanityClient.fetch(familyQuery).catch(() => []),
-      sanityClient.fetch(mentorshipQuery).catch(() => null),
+      safeFetch(heroQuery, null),
+      safeFetch(aboutQuery, null),
+      safeFetch(sermonsQuery, []),
+      safeFetch(quotesQuery, []),
+      safeFetch(familyQuery, []),
+      safeFetch(mentorshipQuery, null),
     ]);
 
     return { hero, about, sermons, quotes, family, mentorship };
