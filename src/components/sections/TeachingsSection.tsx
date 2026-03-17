@@ -1,0 +1,194 @@
+"use client";
+// src/components/sections/TeachingsSection.tsx
+import { useState } from "react";
+import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+
+interface Sermon {
+  _id: string;
+  title: string;
+  youtubeId: string;
+  seriesTag?: string;
+  description?: string;
+  thumbnail?: { asset: { url: string } };
+}
+
+// Placeholder sermons while Sanity is being set up
+const PLACEHOLDER_SERMONS: Sermon[] = [
+  { _id: "1", title: "Biblical Prosperity — RBTC Taster Course", youtubeId: "", seriesTag: "RBTC Taster" },
+  { _id: "2", title: "How to be Led by the Spirit", youtubeId: "", seriesTag: "Rhema Nigeria" },
+  { _id: "3", title: "Pioneer Spirit — Walking in God's Call", youtubeId: "", seriesTag: "Rhema Nigeria" },
+  { _id: "4", title: "Faith for the Impossible", youtubeId: "", seriesTag: "Special Session" },
+  { _id: "5", title: "The Move of the Holy Ghost", youtubeId: "", seriesTag: "Rhema Nigeria" },
+  { _id: "6", title: "Kingdom Mentorship — The Next Generation", youtubeId: "", seriesTag: "Mentorship" },
+];
+
+function VideoCard({ sermon, onClick }: { sermon: Sermon; onClick: () => void }) {
+  const thumbUrl = sermon.thumbnail?.asset?.url
+    || (sermon.youtubeId ? `https://i.ytimg.com/vi/${sermon.youtubeId}/maxresdefault.jpg` : null);
+
+  return (
+    <div onClick={onClick} className="video-card">
+      {/* Thumbnail */}
+      <div className="relative aspect-video bg-espresso overflow-hidden mb-4">
+        {thumbUrl ? (
+          <Image src={thumbUrl} alt={sermon.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-espresso to-mahogany">
+            {/* Decorative cross-lines */}
+            <div className="absolute inset-0 opacity-10"
+              style={{ backgroundImage: "linear-gradient(rgba(200,168,75,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,0.3) 1px,transparent 1px)", backgroundSize: "40px 40px" }}
+            />
+            <span className="text-amber/30 text-4xl">✦</span>
+          </div>
+        )}
+
+        {/* Overlay on hover */}
+        <div className="absolute inset-0 bg-mahogany/0 group-hover:bg-mahogany/50 transition-all duration-500 flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full bg-amber flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+            <svg className="w-5 h-5 fill-mahogany ml-1" viewBox="0 0 24 24">
+              <polygon points="6,4 20,12 6,20" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Series tag */}
+        {sermon.seriesTag && (
+          <div className="absolute top-3 left-3 bg-espresso/90 backdrop-blur-sm px-3 py-1">
+            <span className="text-[9px] tracking-[0.16em] uppercase text-amber font-sans font-medium">
+              {sermon.seriesTag}
+            </span>
+          </div>
+        )}
+      </div>
+
+      <h3
+        className="font-display text-lg font-semibold text-espresso leading-snug group-hover:text-ember transition-colors"
+        style={{ fontFamily: "var(--font-display)" }}
+      >
+        {sermon.title}
+      </h3>
+      {sermon.description && (
+        <p className="text-sm text-umber/70 font-sans font-light mt-2 line-clamp-2">{sermon.description}</p>
+      )}
+    </div>
+  );
+}
+
+function VideoModal({ sermon, onClose }: { sermon: Sermon; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-[80] bg-mahogany/95 backdrop-blur-sm flex items-center justify-center p-6"
+      onClick={onClose}
+    >
+      <div className="w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 text-parchment/60 hover:text-parchment text-sm font-sans mb-4 transition-colors"
+        >
+          ← Close
+        </button>
+        {sermon.youtubeId ? (
+          <div className="relative aspect-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${sermon.youtubeId}?autoplay=1&rel=0&color=white`}
+              className="absolute inset-0 w-full h-full"
+              frameBorder="0"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+              title={sermon.title}
+            />
+          </div>
+        ) : (
+          <div className="aspect-video bg-espresso flex flex-col items-center justify-center gap-4 text-parchment/40">
+            <span className="text-5xl">📺</span>
+            <p className="font-sans text-sm tracking-wider">Video ID not yet configured in Sanity CMS</p>
+            <p className="text-xs font-sans text-parchment/20">Add YouTube Video ID in the CMS to enable playback</p>
+          </div>
+        )}
+        <h3
+          className="font-display text-xl text-parchment mt-4"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          {sermon.title}
+        </h3>
+      </div>
+    </div>
+  );
+}
+
+export default function TeachingsSection({ sermons }: { sermons?: Sermon[] }) {
+  const [active, setActive] = useState<Sermon | null>(null);
+  const data = sermons?.length ? sermons : PLACEHOLDER_SERMONS;
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
+
+  return (
+    <>
+      <section id="teachings" className="bg-smoke py-28 lg:py-36" ref={ref}>
+        <div className="section-wrap">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div>
+              <p className="section-eyebrow mb-4">The Word</p>
+              <h2
+                className="font-display text-4xl lg:text-5xl font-bold text-espresso"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Teachings &amp;<br />
+                <span className="text-ember italic">Sermons</span>
+              </h2>
+            </div>
+            <div className="text-right max-w-xs">
+              <p className="text-sm text-umber/60 font-sans font-light leading-relaxed">
+                Teachings by Rev. Dokun Idowu sourced from Rhema Nigeria.<br />
+                Add videos via Sanity CMS.
+              </p>
+              <a
+                href="https://www.youtube.com/@RhemaNigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-ember text-sm font-sans font-medium mt-3 hover-underline"
+              >
+                View on YouTube ↗
+              </a>
+            </div>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {data.map((sermon, i) => (
+              <div
+                key={sermon._id}
+                className="transition-all duration-700"
+                style={{
+                  transitionDelay: `${i * 80}ms`,
+                  opacity: inView ? 1 : 0,
+                  transform: inView ? "translateY(0)" : "translateY(24px)",
+                }}
+              >
+                <VideoCard sermon={sermon} onClick={() => setActive(sermon)} />
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-16 pt-12 border-t border-sand/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="font-serif italic text-umber/60 text-sm" style={{ fontFamily: "var(--font-serif)" }}>
+              "Expect to be richly blessed as he ministers in a practical way."
+            </p>
+            <a
+              href="https://www.youtube.com/@RhemaNigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              All Teachings on YouTube →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {active && <VideoModal sermon={active} onClose={() => setActive(null)} />}
+    </>
+  );
+}
