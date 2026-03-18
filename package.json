@@ -11,7 +11,8 @@
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.50.0",
-    "framer-motion": "^11.3.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "framer-motion": "^12.38.0",
     "next": "^14.2.0",
     "next-sanity": "^9.4.0",
     "react": "^18.3.0",

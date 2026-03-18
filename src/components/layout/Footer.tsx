@@ -35,9 +35,10 @@ export default function Footer() {
             {/* Social row */}
             <div className="flex gap-5 mt-8">
               {[
-                { label: "X", href: "https://x.com/DokunIdowu" },
-                { label: "YouTube", href: "https://youtube.com" },
-                { label: "Facebook", href: "https://facebook.com" },
+                { label: "Instagram", href: "https://instagram.com/dokun_idowu" },
+                { label: "Facebook", href: "https://www.facebook.com/iamdokunidowu" },
+                { label: "X / Twitter", href: "https://x.com/DokunIdowu" },
+                { label: "YouTube", href: "https://youtube.com/@RhemaNigeria" },
               ].map((s) => (
                 <a
                   key={s.label}
