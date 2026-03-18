@@ -122,3 +122,12 @@
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Hide default cursor on desktop for custom cursor */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

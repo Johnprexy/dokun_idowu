@@ -1,6 +1,7 @@
 "use client";
 // src/components/sections/AboutSection.tsx
 import Image from "next/image";
+import RevealText from "../ui/RevealText";
 import { useInView } from "react-intersection-observer";
 
 const BIO = [
