@@ -10,12 +10,12 @@ interface FamilyPhoto {
 
 // Static photos — real + placeholders
 const STATIC_PHOTOS = [
-  { src: "/images/pastor-dokun.jpg",       caption: "Rev. Dokun Idowu",        sub: "Executive Leader · Rhema Nigeria", span: true },
-  { src: "/images/tobore-idowu.jpg",       caption: "Mrs. Tobore Idowu",       sub: "Partner in Ministry",              span: false },
-  { src: "/images/ministry-couple.jpg",    caption: "Rev. & Mrs. Idowu",       sub: "Together in the Word",             span: false },
-  { src: "/images/ministry-graduation.jpg",caption: "Rhema Graduation",        sub: "Raising Kingdom ministers",        span: false },
-  { src: null,                             caption: "Family Portrait",          sub: "Upload via CMS",                   span: false },
-  { src: null,                             caption: "Ministry Moments",         sub: "Upload via CMS",                   span: false },
+  { src: "/images/pastor-dokun.jpg",        caption: "Rev. Dokun Idowu",          sub: "Executive Leader · Rhema Nigeria", span: true },
+  { src: "/images/tobore-idowu.jpg",        caption: "Mrs. Tobore Idowu",         sub: "Partner in Ministry",              span: false },
+  { src: "/images/ministry-couple.jpg",     caption: "Rev. & Mrs. Idowu",         sub: "Together in the Word",             span: false },
+  { src: "/images/family-tobore-son.jpg",   caption: "Mrs. Tobore & Son",         sub: "Family Moments",                   span: false },
+  { src: "/images/ministry-graduation.jpg", caption: "Rhema Graduation",          sub: "Raising Kingdom ministers",        span: false },
+  { src: null,                              caption: "Family Portrait",            sub: "Upload via CMS",                   span: false },
 ];
 
 export default function FamilySection({ photos }: { photos?: FamilyPhoto[] }) {
