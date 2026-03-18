@@ -1,37 +1,30 @@
 "use client";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 
-const Preloader    = dynamic(() => import("./Preloader"),    { ssr: false });
 const CustomCursor = dynamic(() => import("./CustomCursor"), { ssr: false });
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const [loaded, setLoaded] = useState(false);
-  const onComplete = useCallback(() => setLoaded(true), []);
 
-  // Ensure body scroll is never blocked after preloader
-  useEffect(() => {
-    if (loaded) {
-      document.body.style.overflow = "";
-      document.body.style.willChange = "";
-    }
-  }, [loaded]);
+  const onComplete = useCallback(() => {
+    setLoaded(true);
+  }, []);
+
+  // Dynamically import Preloader to avoid SSR
+  const Preloader = dynamic(() => import("./Preloader"), { ssr: false });
 
   return (
     <>
       <Preloader onComplete={onComplete} />
       <CustomCursor />
-      {/* No wrapper div with opacity — avoids stacking context that causes scroll lag */}
-      <div
-        style={{
-          opacity: loaded ? 1 : 0,
-          visibility: loaded ? "visible" : "hidden",
-          // No transform, no will-change — prevents scroll jank and layout shift
-          transition: "opacity 0.3s ease",
-        }}
-      >
-        {children}
-      </div>
+      {/*
+        CRITICAL: Do NOT wrap children in a div with opacity/visibility.
+        That creates a new stacking context and causes the page to swing/jump
+        when the preloader exits on mobile.
+        Instead: preloader sits on top (fixed), page is always in normal flow below.
+      */}
+      {children}
     </>
   );
 }
