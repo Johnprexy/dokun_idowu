@@ -77,58 +77,107 @@ export default function ContactSection() {
 
             {/* Info rows */}
             <div className="space-y-6">
-              {[
-                {
-                  icon: (
+              {/* Email */}
+              <div className="flex items-start gap-5">
+                <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  ),
-                  icon2: <polyline points="22,6 12,13 2,6" />,
-                  label: "Email",
-                  value: "info@dokuniidowu.org",
-                },
-                {
-                  icon: (
-                    <>
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </>
-                  ),
-                  label: "Ministry",
-                  value: "Rhema Bible Training Centre, Nigeria",
-                },
-                {
-                  icon: (
-                    <>
-                      <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                    </>
-                  ),
-                  label: "Social",
-                  value: "@DokunIdowu on X (Twitter)",
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-5">
-                  <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0">
-                    <svg
-                      className="w-4 h-4 text-amber"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      {item.icon}
-                      {item.icon2}
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[10px] tracking-[0.14em] uppercase text-taupe font-sans font-medium mb-1">
-                      {item.label}
-                    </p>
-                    <p className="text-sm text-espresso font-sans">{item.value}</p>
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.14em] uppercase text-taupe font-sans font-medium mb-1">Email</p>
+                  <p className="text-sm text-espresso font-sans">info@dokuniidowu.org</p>
+                </div>
+              </div>
+
+              {/* Ministry */}
+              <div className="flex items-start gap-5">
+                <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.14em] uppercase text-taupe font-sans font-medium mb-1">Ministry</p>
+                  <p className="text-sm text-espresso font-sans">Rhema Bible Training Centre, Nigeria</p>
+                </div>
+              </div>
+
+              {/* Social links */}
+              <div className="flex items-start gap-5">
+                <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.14em] uppercase text-taupe font-sans font-medium mb-3">Follow on Social</p>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      {
+                        label: "Instagram",
+                        handle: "@dokun_idowu",
+                        href: "https://instagram.com/dokun_idowu",
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: "Facebook",
+                        handle: "iamdokunidowu",
+                        href: "https://www.facebook.com/iamdokunidowu",
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: "X / Twitter",
+                        handle: "@DokunIdowu",
+                        href: "https://x.com/DokunIdowu",
+                        icon: (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: "YouTube",
+                        handle: "Rhema Nigeria",
+                        href: "https://youtube.com/@RhemaNigeria",
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                            <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none" />
+                          </svg>
+                        ),
+                      },
+                    ].map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-linen hover:bg-espresso text-espresso hover:text-amber
+                                   border border-sand/60 hover:border-amber/40 px-3 py-2
+                                   text-[11px] font-sans font-medium tracking-wide transition-all duration-250 group"
+                      >
+                        <span className="text-amber group-hover:text-amber">{s.icon}</span>
+                        <span>{s.handle}</span>
+                      </a>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
 
             {/* Decorative scripture */}

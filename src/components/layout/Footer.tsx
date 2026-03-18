@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="flex gap-5 mt-8">
               {[
                 { label: "Instagram", href: "https://instagram.com/dokun_idowu" },
-                { label: "Facebook", href: "https://web.facebook.com/DokunIdowu" },
+                { label: "Facebook", href: "https://www.facebook.com/iamdokunidowu" },
                 { label: "X / Twitter", href: "https://x.com/DokunIdowu" },
                 { label: "YouTube", href: "https://youtube.com/@RhemaNigeria" },
               ].map((s) => (
