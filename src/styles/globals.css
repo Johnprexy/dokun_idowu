@@ -123,8 +123,8 @@
   100% { transform: translateX(-50%); }
 }
 
-/* Hide default cursor on desktop for custom cursor */
-@media (pointer: fine) {
+/* Hide default cursor ONLY on non-touch desktop devices */
+@media (pointer: fine) and (hover: hover) {
   * { cursor: none !important; }
 }
 

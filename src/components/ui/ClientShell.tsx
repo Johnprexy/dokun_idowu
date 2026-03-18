@@ -25,9 +25,9 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       <div
         style={{
           opacity: loaded ? 1 : 0,
-          // Use visibility instead of opacity transition to avoid compositor lag
           visibility: loaded ? "visible" : "hidden",
-          // DO NOT use transform or will-change here — causes new stacking context = scroll jank
+          // No transform, no will-change — prevents scroll jank and layout shift
+          transition: "opacity 0.3s ease",
         }}
       >
         {children}
