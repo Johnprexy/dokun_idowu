@@ -142,33 +142,15 @@ export default function TeachingsSection({ sermons }: { sermons?: Sermon[] }) {
       <section id="teachings" className="bg-smoke py-28 lg:py-36" ref={ref}>
         <div className="section-wrap">
           {/* Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-            <div>
-              <p className="section-eyebrow mb-4">The Word</p>
-              <h2
-                className="font-display text-4xl lg:text-5xl font-bold text-espresso"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Teachings &amp;<br />
-                <span className="text-ember italic">Sermons</span>
-              </h2>
-            </div>
-            <div className="text-right max-w-xs">
-              <p className="text-sm text-umber/60 font-sans font-light leading-relaxed">
-                Teachings by Rev. Dokun Idowu sourced from Rhema Nigeria.<br />
-                Add videos via Sanity CMS.
-              </p>
-              <a
-                href="https://www.youtube.com/@RhemaNigeria"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-ember text-sm font-sans font-medium mt-3 hover-underline"
-              >
-                View on YouTube ↗
-              </a>
-            </div>
+          <div className="mb-16">
+            <p className="section-eyebrow mb-4">The Word</p>
+            <h2
+              className="font-display text-4xl lg:text-5xl font-bold text-espresso"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              PDee <span className="text-ember italic">Speaks</span>
+            </h2>
           </div>
-
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {data.map((sermon, i) => (
