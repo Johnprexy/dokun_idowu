@@ -4,23 +4,19 @@ import { useInView } from "react-intersection-observer";
 
 const DEFAULT_PILLARS = [
   {
-    icon: "✦",
-    title: "Faith Foundation",
+    icon: "❖", title: "Faith Foundation",
     description: "Grounded mentorship rooted in the Word, building unshakable faith for everyday life and ministry.",
   },
   {
-    icon: "❖",
-    title: "Purpose Discovery",
+    icon: "❖", title: "Purpose Discovery",
     description: "Helping individuals identify their God-given calling and walk boldly into their pioneering assignment.",
   },
   {
-    icon: "❖",
-    title: "Kingdom Leadership",
+    icon: "❖", title: "Kingdom Leadership",
     description: "Equipping leaders with practical tools, spiritual authority, and a sustainable Kingdom vision.",
   },
   {
-    icon: "❖",
-    title: "Personal Growth",
+    icon: "❖", title: "Personal Growth",
     description: "Spirit-led guidance through life's seasons — spiritual, professional, and deeply personal.",
   },
 ];

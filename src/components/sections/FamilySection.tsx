@@ -95,18 +95,6 @@ export default function FamilySection({ photos }: { photos?: FamilyPhoto[] }) {
             </div>
           ))}
         </div>
-
-        {/* Scripture footer */}
-        <div className={`mt-14 text-center transition-all duration-700 delay-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          <p className="font-serif italic text-umber/50 text-base max-w-md mx-auto leading-relaxed" style={{ fontFamily: "var(--font-serif)" }}>
-            &ldquo;He is married to Mrs. Tobore Idowu &amp; they are blessed with three amazing children.&rdquo;
-          </p>
-          <div className="flex items-center justify-center gap-4 mt-5">
-            <div className="w-8 h-px bg-amber/30" />
-            <span className="text-amber/40 text-sm">&#10022;</span>
-            <div className="w-8 h-px bg-amber/30" />
-          </div>
-        </div>
       </div>
     </section>
   );

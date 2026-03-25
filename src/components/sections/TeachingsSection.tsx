@@ -19,21 +19,18 @@ const PLACEHOLDER_SERMONS: Sermon[] = [
     _id: "1",
     title: "Teaching by Rev. Dokun Idowu",
     youtubeId: "WuP65UIetl8",
-    seriesTag: "Rhema Nigeria",
     description: "An anointed teaching by Rev. Dokun Idowu, graced by God for the gifts of the Spirit and the move of the Holy Ghost.",
   },
   {
     _id: "2",
     title: "Live Teaching - Rev. Dokun Idowu",
     youtubeId: "xu5alIBdtCg",
-    seriesTag: "Rhema Live",
-    description: "A live ministry session with Rev. Dokun Idowu, Executive Leader at Rhema Nigeria.",
+    description: "A live ministry session with Rev. Dokun Idowu, Executive Leader in ministry.",
   },
   {
     _id: "3",
     title: "Live Teaching - Rev. Dokun Idowu",
     youtubeId: "MQokt0F5Scs",
-    seriesTag: "Rhema Live",
     description: "Expect to be richly blessed as Rev. Dokun Idowu ministers in a practical way.",
   },
 ];
@@ -68,13 +65,6 @@ function VideoCard({ sermon, onClick }: { sermon: Sermon; onClick: () => void })
         </div>
 
         {/* Series tag */}
-        {sermon.seriesTag && (
-          <div className="absolute top-3 left-3 bg-espresso/90 backdrop-blur-sm px-3 py-1">
-            <span className="text-[9px] tracking-[0.16em] uppercase text-amber font-sans font-medium">
-              {sermon.seriesTag}
-            </span>
-          </div>
-        )}
       </div>
 
       <h3
@@ -177,9 +167,13 @@ export default function TeachingsSection({ sermons }: { sermons?: Sermon[] }) {
               href="https://www.youtube.com/@RhemaNigeria"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline"
+              className="btn-outline inline-flex items-center gap-3"
             >
-              All Teachings on YouTube →
+              <svg width="20" height="14" viewBox="0 0 24 17" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.495 2.656a3.016 3.016 0 0 0-2.122-2.136C19.505 0 12 0 12 0S4.495 0 2.627.52A3.016 3.016 0 0 0 .505 2.656C0 4.537 0 8.455 0 8.455s0 3.918.505 5.799a3.016 3.016 0 0 0 2.122 2.136C4.495 17 12 17 12 17s7.505 0 9.373-.51a3.016 3.016 0 0 0 2.122-2.136C24 12.373 24 8.455 24 8.455s0-3.918-.505-5.799z" fill="#FF0000"/>
+                <path d="M9.545 12.023V4.886l6.273 3.569-6.273 3.568z" fill="white"/>
+              </svg>
+              Video Links
             </a>
           </div>
         </div>

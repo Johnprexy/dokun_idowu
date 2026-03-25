@@ -91,20 +91,6 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* Ministry */}
-              <div className="flex items-start gap-5">
-                <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[10px] tracking-[0.14em] uppercase text-taupe font-sans font-medium mb-1">Ministry</p>
-                  <p className="text-sm text-espresso font-sans">Rhema Bible Training Centre, Nigeria</p>
-                </div>
-              </div>
-
               {/* Social links */}
               <div className="flex items-start gap-5">
                 <div className="w-11 h-11 bg-espresso flex items-center justify-center flex-shrink-0 mt-0.5">
