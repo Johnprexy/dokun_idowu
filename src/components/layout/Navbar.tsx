@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "Home",        href: "#home" },
-  { label: "About",       href: "#about" },
-  { label: "Teachings",   href: "#teachings" },
-  { label: "Mentorship",  href: "#mentorship" },
-  { label: "Family",      href: "#family" },
-  { label: "Contact",     href: "#contact" },
+  { label: "Home",        href: "#home",        external: false },
+  { label: "About",       href: "#about",       external: false },
+  { label: "Teachings",   href: "#teachings",   external: false },
+  { label: "Events",      href: "/events",      external: true  },
+  { label: "Give",        href: "/give",        external: true  },
+  { label: "Contact",     href: "#contact",     external: false },
 ];
 
 export default function Navbar() {
@@ -22,8 +22,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const scrollTo = (href: string) => {
+  const scrollTo = (href: string, external = false) => {
     setMenuOpen(false);
+    if (external) {
+      window.location.href = href;
+      return;
+    }
     const id = href.replace("#", "");
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -57,7 +61,7 @@ export default function Navbar() {
           {NAV_ITEMS.map((item) => (
             <li key={item.label}>
               <button
-                onClick={() => scrollTo(item.href)}
+                onClick={() => scrollTo(item.href, item.external)}
                 className="text-xs tracking-[0.14em] uppercase text-parchment/70 hover:text-amber
                            transition-colors duration-200 font-sans font-medium hover-underline"
               >
@@ -131,7 +135,7 @@ export default function Navbar() {
           {NAV_ITEMS.map((item, i) => (
             <button
               key={item.label}
-              onClick={() => scrollTo(item.href)}
+              onClick={() => scrollTo(item.href, item.external)}
               className="font-display text-3xl italic text-parchment/80 hover:text-amber transition-colors"
               style={{ animationDelay: `${i * 60}ms` }}
             >
