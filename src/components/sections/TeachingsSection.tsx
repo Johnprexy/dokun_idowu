@@ -383,18 +383,6 @@ export default function TeachingsSection({ sermons }: { sermons?: any[] }) {
                 {data.length} messages &bull; More being added
               </p>
             </div>
-            <a
-              href="https://www.youtube.com/@RhemaNigeria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-espresso/25 text-espresso font-sans font-semibold text-sm tracking-widest uppercase px-6 py-3.5 hover:border-ember hover:text-ember transition-all duration-200 flex-shrink-0"
-            >
-              <svg width="18" height="13" viewBox="0 0 24 17">
-                <path d="M23.495 2.656a3.016 3.016 0 0 0-2.122-2.136C19.505 0 12 0 12 0S4.495 0 2.627.52A3.016 3.016 0 0 0 .505 2.656C0 4.537 0 8.455 0 8.455s0 3.918.505 5.799a3.016 3.016 0 0 0 2.122 2.136C4.495 17 12 17 12 17s7.505 0 9.373-.51a3.016 3.016 0 0 0 2.122-2.136C24 12.373 24 8.455 24 8.455s0-3.918-.505-5.799z" fill="#FF0000"/>
-                <path d="M9.545 12.023V4.886l6.273 3.569-6.273 3.568z" fill="white"/>
-              </svg>
-              Video Links
-            </a>
           </div>
 
           {/* Ministry Moments */}
