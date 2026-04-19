@@ -46,13 +46,13 @@ const CATEGORY_CONFIG = {
   itinerary: {
     label: "Itinerary",
     subtitle: "Ministry engagements",
-    cover: "/images/ministry-preaching-2.jpg",
+    cover: "/images/pic6.jpeg",
     accent: "#C4622D",
   },
   podcast: {
     label: "Podcast",
     subtitle: "Special sessions",
-    cover: "/images/pic3.jpeg",
+    cover: "/images/pic5.jpeg",
     accent: "#7A6248",
   },
 } as const;

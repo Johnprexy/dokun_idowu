@@ -16,7 +16,7 @@ const QUICK = [
 const MINISTRY = [
   { label: "Rhema Nigeria",          href: "https://rhemanigeria.com" },
   { label: "Kenneth Hagin Ministries", href: "https://www.rhema.org" },
-  { label: "Rhema Ghana",            href: "https://facebook.com/rhemaghana1" },
+  { label: "Rhema Bible Training",   href: "https://rhema.org" },
 ];
 
 const scrollTo = (id: string) =>

@@ -16,8 +16,6 @@ const SCROLLING_TAGS = [
   "Rhema Nigeria", "Mentor", "Holy Ghost", "Anointed", "Kingdom Builder",
 ];
 
-const scrollTo = (id: string) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 export default function HeroSection({ data }: { data?: HeroData }) {
   const [mounted, setMounted] = useState(false);
@@ -93,15 +91,15 @@ export default function HeroSection({ data }: { data?: HeroData }) {
 
         {/* CTAs */}
         <div className={`flex flex-wrap gap-4 transition-all duration-700 delay-[400ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          <button onClick={() => scrollTo("teachings")} className="btn-primary">
+          <a href="/teachings" className="btn-primary">
             {data?.heroCta1 || "Watch Teachings"} &rarr;
-          </button>
-          <button
-            onClick={() => scrollTo("mentorship")}
+          </a>
+          <a
+            href="/mentorship"
             className="btn-outline text-parchment border-parchment/20 hover:border-amber hover:text-amber"
           >
             {data?.heroCta2 || "Mentorship Platform"}
-          </button>
+          </a>
         </div>
 
         {/* Stats */}

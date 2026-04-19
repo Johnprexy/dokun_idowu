@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ClientShell from "@/components/ui/ClientShell";
@@ -20,15 +21,22 @@ export default function GivePage() {
       <Navbar />
       <main className="bg-smoke min-h-screen">
 
-        <section className="bg-mahogany pt-36 pb-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(196,98,45,0.12)_0%,transparent_60%)]" />
-          <div className="section-wrap relative z-10">
-            <p className="section-eyebrow mb-4">Kingdom Partnership</p>
-            <h1 className="font-display text-5xl lg:text-7xl font-black text-parchment leading-tight mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Give &amp;
-              <span className="block text-amber italic">Partner</span>
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-mahogany">
+          <Image src="/images/ministry-graduation.jpg" alt="" fill
+            className="object-cover object-[center_30%]" />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(42,27,18,0.45) 0%, rgba(42,27,18,0.97) 100%)" }} />
+          <div className="absolute top-0 inset-x-0 h-1 bg-amber" />
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-16 lg:pb-20">
+            <p className="text-[11px] tracking-[0.3em] uppercase text-amber font-sans font-semibold mb-4 flex items-center gap-3">
+              <span className="w-8 h-px bg-amber" /> Kingdom Partnership
+            </p>
+            <h1 className="font-bold text-parchment leading-tight mb-5"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.8rem, 6vw, 5rem)" }}>
+              Give &amp; <span className="text-amber italic">Partner</span>
             </h1>
-            <p className="text-parchment/70 font-sans text-lg max-w-xl leading-relaxed">
+            <div className="w-12 h-0.5 bg-amber mb-6" />
+            <p className="text-parchment/55 font-sans text-lg max-w-xl leading-relaxed">
               When you partner with this ministry, you become a co-labourer in the harvest. Every seed you sow goes directly into the advancement of God&apos;s Kingdom.
             </p>
           </div>
