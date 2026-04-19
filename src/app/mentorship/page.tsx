@@ -68,7 +68,7 @@ export default function MentorshipPage() {
         {/* ── HERO — full screen split ───────────────────────────────────── */}
         <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
           {/* Left — dark text side */}
-          <div className="relative z-10 flex flex-col justify-center bg-mahogany px-8 lg:px-16 xl:px-24 pt-36 pb-20 lg:pt-0 lg:pb-0 lg:w-[52%]">
+          <div className="relative z-10 flex flex-col justify-center bg-mahogany px-8 lg:px-16 xl:px-24 pt-36 pb-20 lg:pt-32 lg:pb-20 lg:w-[52%]">
             {/* Grain */}
             <div className="absolute inset-0 grain-overlay pointer-events-none" />
             <div className="relative z-10">
@@ -78,7 +78,7 @@ export default function MentorshipPage() {
               </p>
               <h1
                 className="font-bold text-parchment leading-[0.9] mb-8 tracking-tight"
-                style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.5rem, 7vw, 6.5rem)" }}
+                style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
               >
                 Mentor&shy;ship &amp;<br />
                 <em className="text-amber not-italic">Disciple&shy;ship</em>
