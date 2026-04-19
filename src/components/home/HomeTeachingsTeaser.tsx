@@ -5,8 +5,8 @@ import { useInView } from "react-intersection-observer";
 
 const FEATURED = [
   { id: "FUlRpX6WqJc", title: "Rhema Conference 2023 — Day 2", venue: "Rhema Conference · Abuja", year: "2023" },
-  { id: "C7cUk1MkFA0", title: "Our Identity in Christ", venue: "Open Heaven · Accrington", year: "" },
-  { id: "57-kyx8iCi0", title: "Faith, Healing & Prosperity", venue: "Harvest Reapers", year: "" },
+  { id: "wKllFYEcYXI", title: "Rhema Conference 2023 — Day 4", venue: "Rhema Conference · Abuja", year: "2023" },
+  { id: "GoKRorn2daY", title: "Rhema Conference 2022 — Day 3", venue: "Rhema Conference · Port Harcourt", year: "2022" },
 ];
 
 export default function HomeTeachingsTeaser() {
@@ -45,7 +45,7 @@ export default function HomeTeachingsTeaser() {
               {/* Thumb */}
               <div className="relative overflow-hidden mb-4" style={{ aspectRatio: "16/9" }}>
                 <Image
-                  src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`}
+                  src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
                   alt={v.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"

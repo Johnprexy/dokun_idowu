@@ -90,38 +90,51 @@ export default function EventsPage() {
           </div>
         </section>
 
-        {/* ── FEATURED EVENT ── */}
+        {/* ── FEATURED EVENT — clean light card ── */}
         {EVENTS.filter(e => e.featured).map(event => (
-          <section key={event.id} className="relative overflow-hidden min-h-[380px] flex items-center">
-            <Image src={event.img} alt={event.title} fill className="object-cover object-[center_30%]" />
-            <div className="absolute inset-0" style={{ background: "rgba(42,27,18,0.88)" }} />
-            <div className="absolute top-0 inset-x-0 h-px bg-amber/20" />
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                {/* Date block */}
-                <div className="text-center lg:text-left">
-                  <div className="inline-block bg-amber text-mahogany px-6 py-4 mb-4">
-                    <p className="text-5xl font-black leading-none" style={{ fontFamily: "var(--font-display)" }}>{event.day}</p>
-                    <p className="text-sm font-bold tracking-widest uppercase mt-1">{event.month} 2026</p>
+          <div key={event.id} className="bg-parchment border-b border-sand/30">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+                {/* Image */}
+                <div className="lg:col-span-5 relative overflow-hidden group rounded-none" style={{ aspectRatio: "16/9" }}>
+                  <Image src={event.img} alt={event.title} fill
+                    className="object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0"
+                    style={{ background: "linear-gradient(to top, rgba(42,27,18,0.5), transparent)" }} />
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-amber" />
+                  <div className="absolute top-3 left-3 bg-amber text-mahogany px-3 py-1">
+                    <p className="text-[9px] font-bold tracking-widest uppercase font-sans">✦ Featured Event</p>
                   </div>
-                  <p className="text-parchment/50 font-sans text-sm">{event.location}</p>
                 </div>
                 {/* Content */}
-                <div className="lg:col-span-2">
-                  <span className="inline-block text-[9px] tracking-[0.2em] uppercase font-sans font-bold px-3 py-1 mb-4 bg-amber/15 text-amber">
-                    ✦ Featured Event
-                  </span>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-parchment mb-4 leading-snug"
+                <div className="lg:col-span-7 flex flex-col justify-center py-2">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="bg-espresso px-4 py-3 text-center flex-shrink-0">
+                      <p className="text-2xl font-black leading-none" style={{ fontFamily: "var(--font-display)", color: "#C8A84B" }}>{event.day}</p>
+                      <p className="text-[9px] tracking-widest uppercase text-parchment/50 font-sans mt-1">{event.month} 2026</p>
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-sans font-bold tracking-widest uppercase px-2.5 py-1 mb-2 inline-block"
+                        style={{ background: event.typeColor, color: "#F5EFE0" }}>{event.type}</span>
+                      <div className="flex items-center gap-1.5 mt-1.5 text-xs text-umber/50 font-sans">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        {event.location}
+                      </div>
+                    </div>
+                  </div>
+                  <h2 className="text-2xl lg:text-3xl font-bold text-espresso mb-4 leading-snug"
                     style={{ fontFamily: "var(--font-display)" }}>{event.title}</h2>
-                  <p className="text-parchment/55 font-sans text-base leading-relaxed mb-6">{event.description}</p>
+                  <p className="text-umber/65 font-sans text-base leading-relaxed mb-6">{event.description}</p>
                   <Link href="/contact"
-                    className="inline-flex items-center gap-2 bg-amber text-mahogany font-sans font-bold text-sm tracking-widest uppercase px-7 py-3.5 hover:bg-gold-light transition-colors">
+                    className="inline-flex items-center gap-2 bg-espresso text-parchment font-sans font-bold text-sm tracking-widest uppercase px-7 py-3.5 hover:bg-ember transition-colors self-start">
                     Register / Enquire →
                   </Link>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         ))}
 
         {/* ── OTHER EVENTS ── */}

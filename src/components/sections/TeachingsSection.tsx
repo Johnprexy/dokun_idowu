@@ -182,7 +182,7 @@ function VideoRow({ sermon, onClick, index }: { sermon: Sermon; onClick: () => v
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────
-export default function TeachingsSection({ sermons, compact = false }: { sermons?: any[]; compact?: boolean }) {
+export default function TeachingsSection({ sermons, compact = false, standalone = false }: { sermons?: any[]; compact?: boolean; standalone?: boolean }) {
   const [activeTab, setActiveTab] = useState<TabId>("all");
   const [showGrid, setShowGrid] = useState(true); // true = category grid, false = list
   const [activeVideo, setActiveVideo] = useState<Sermon | null>(null);
@@ -205,10 +205,35 @@ export default function TeachingsSection({ sermons, compact = false }: { sermons
 
   return (
     <>
-      <section id="teachings" className="bg-smoke py-24 lg:py-32" ref={ref}>
+      {/* ── Standalone page hero (only on /teachings page) ── */}
+      {standalone && (
+        <div className="relative overflow-hidden bg-espresso" style={{ minHeight: "52vh" }}>
+          <Image src="/images/ministry-preaching-1.jpg" alt="" fill
+            className="object-cover object-[center_30%]" style={{ opacity: 0.25 }} />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(61,43,31,0.7) 0%, rgba(61,43,31,0.98) 100%)" }} />
+          <div className="absolute top-0 inset-x-0 h-1 bg-amber" />
+          <div className="relative z-10 flex flex-col justify-end h-full px-6 lg:px-16 pt-36 pb-16 max-w-7xl mx-auto w-full">
+            <p className="text-[11px] tracking-[0.3em] uppercase text-amber font-sans font-semibold mb-4 flex items-center gap-3">
+              <span className="w-8 h-px bg-amber" /> The Word
+            </p>
+            <h1 className="font-bold text-parchment leading-tight mb-4"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.8rem, 6vw, 5rem)" }}>
+              PDee <span className="text-amber italic">Speaks</span>
+            </h1>
+            <div className="w-12 h-0.5 bg-amber mb-5" />
+            <p className="text-parchment/50 font-sans text-lg leading-relaxed max-w-xl">
+              Conferences, ministry engagements, and podcast sessions — filtered by category, ready to watch.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <section id="teachings" className="bg-smoke py-20 lg:py-28" ref={ref}>
         <div className="section-wrap">
 
-          {/* ── Header ── */}
+          {/* ── Header (homepage only) ── */}
+          {!standalone && (
           <div className={`mb-12 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             <p className="section-eyebrow mb-4">The Word</p>
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
@@ -216,7 +241,6 @@ export default function TeachingsSection({ sermons, compact = false }: { sermons
                 PDee <span className="text-ember italic">Speaks</span>
               </h2>
               <div className="flex items-center gap-3">
-                {/* View toggle */}
                 <button onClick={() => setShowGrid(true)}
                   className={`text-xs font-sans font-semibold px-3 py-2 border transition-colors ${showGrid && activeTab==="all" ? "bg-espresso text-amber border-espresso" : "border-sand/60 text-umber hover:border-amber/50"}`}
                   title="Browse by category">
@@ -230,6 +254,21 @@ export default function TeachingsSection({ sermons, compact = false }: { sermons
               </div>
             </div>
           </div>
+          )}
+
+          {/* ── Filter tabs + view toggle (standalone) ── */}
+          {standalone && (
+            <div className="flex items-center gap-3 mb-8 justify-end">
+              <button onClick={() => setShowGrid(true)}
+                className={`text-xs font-sans font-semibold px-3 py-2 border transition-colors ${showGrid && activeTab==="all" ? "bg-espresso text-amber border-espresso" : "border-sand/60 text-umber hover:border-amber/50"}`}>
+                ⊞ Browse
+              </button>
+              <button onClick={() => setShowGrid(false)}
+                className={`text-xs font-sans font-semibold px-3 py-2 border transition-colors ${!showGrid || activeTab!=="all" ? "bg-espresso text-amber border-espresso" : "border-sand/60 text-umber hover:border-amber/50"}`}>
+                ☰ All
+              </button>
+            </div>
+          )}
 
           {/* ── Filter tabs (list mode) ── */}
           {(!showGrid || activeTab !== "all") && (
