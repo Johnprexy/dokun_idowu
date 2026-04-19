@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MentorshipSection from "@/components/sections/MentorshipSection";
@@ -49,23 +50,31 @@ export default function MentorshipPage() {
                 {
                   title: "Young Believers",
                   desc: "Finding your footing in faith. Building on the Word. Understanding who you are in Christ.",
-                  icon: "✦",
+                  img: "/images/ministry-graduation.jpg",
+                  pos: "center 30%",
                 },
                 {
                   title: "Ministers in Training",
                   desc: "Developing your gifts, understanding your calling, and learning to walk in spiritual authority.",
-                  icon: "✦",
+                  img: "/images/ministry-preaching-2.jpg",
+                  pos: "center 20%",
                 },
                 {
                   title: "Marketplace Leaders",
-                  desc: "Aligning your career, business, and influence with Kingdom principles and God's purpose for your life.",
-                  icon: "✦",
+                  desc: "Aligning your career, business, and influence with Kingdom principles and God's purpose.",
+                  img: "/images/pic2.jpeg",
+                  pos: "center 20%",
                 },
-              ].map((c, i) => (
-                <div key={i} className="p-8 border border-sand/40 hover:border-amber/40 transition-colors group">
-                  <span className="text-2xl text-amber block mb-5">{c.icon}</span>
-                  <h3 className="font-bold text-espresso text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>{c.title}</h3>
-                  <p className="text-umber/70 font-sans text-base leading-relaxed">{c.desc}</p>
+              ].map((card, i) => (
+                <div key={i} className="overflow-hidden border border-sand/40 hover:border-amber/40 transition-colors group">
+                  <div className="relative overflow-hidden" style={{ aspectRatio:"16/9" }}>
+                    <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" style={{ objectPosition: card.pos }} />
+                    <div className="absolute inset-0" style={{ background:"linear-gradient(to top, rgba(42,27,18,0.7), transparent)" }} />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-espresso text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3>
+                    <p className="text-umber/70 font-sans text-base leading-relaxed">{card.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

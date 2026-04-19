@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
@@ -6,7 +7,8 @@ export default function HomePrayTeaser() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section className="bg-mahogany py-20 lg:py-24 grain-overlay" ref={ref}>
+    <section className="bg-mahogany py-20 lg:py-24 grain-overlay relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 pointer-events-none"><Image src="/images/pic3.jpeg" alt="" fill className="object-cover" style={{ opacity: 0.08 }} /></div>
       <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
         <div className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="text-amber text-2xl block mb-5">✦</span>

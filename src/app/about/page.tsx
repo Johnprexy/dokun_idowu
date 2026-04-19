@@ -48,7 +48,10 @@ export default function AboutPage() {
         <TimelineSection />
 
         {/* Ministry credentials */}
-        <section className="bg-white py-20 lg:py-28">
+        <section className="bg-white py-20 lg:py-28 relative overflow-hidden">
+          <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none hidden lg:block">
+            <Image src="/images/p4.jpeg" alt="" fill className="object-cover object-[center_top] opacity-8" style={{ opacity: 0.06 }} />
+          </div>
           <div className="max-w-5xl mx-auto px-6 lg:px-12">
             <p className="text-[11px] tracking-[0.25em] uppercase text-amber font-sans font-semibold mb-4 flex items-center gap-3">
               <span className="w-7 h-px bg-amber" />
