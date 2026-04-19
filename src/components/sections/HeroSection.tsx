@@ -23,7 +23,7 @@ export default function HeroSection({ data }: { data?: HeroData }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
-  const imgSrc = data?.heroImage?.asset?.url || "/images/pastor-dokun.jpg";
+  const imgSrc = data?.heroImage?.asset?.url || "/images/hero-image.jpeg";
 
   return (
     <section
@@ -40,7 +40,7 @@ export default function HeroSection({ data }: { data?: HeroData }) {
           src={imgSrc}
           alt="Rev. Dokun Idowu"
           fill
-          className="object-cover object-center lg:object-[center_15%]"
+          className="object-cover object-[center_top]"
           style={{ opacity: 0.55 }}
           priority
         />

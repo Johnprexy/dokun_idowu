@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
@@ -19,6 +20,14 @@ export default function HomeMentorshipTeaser() {
 
           {/* Left */}
           <div className={`transition-all duration-1000 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            {/* pic2 accent photo */}
+            <div className="relative overflow-hidden mb-8 rounded-sm" style={{ aspectRatio:"4/3" }}>
+              <Image src="/images/pic2.jpeg" alt="Rev. Dokun Idowu" fill className="object-cover object-top" />
+              <div className="absolute inset-0" style={{ background:"linear-gradient(to top, rgba(42,27,18,0.6), transparent)" }} />
+              <div className="absolute bottom-4 left-4">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-amber font-sans font-semibold">PDee · Mentor</p>
+              </div>
+            </div>
             <p className="text-[11px] tracking-[0.25em] uppercase text-amber font-sans font-semibold mb-4 flex items-center gap-3">
               <span className="w-7 h-px bg-amber" />
               Platform

@@ -43,7 +43,7 @@ export default function AboutSection({ data }: { data?: any }) {
                 />
               ) : (
                 <Image
-                  src="/images/pastor-dokun.jpg"
+                  src="/images/p4.jpeg"
                   alt="Rev. Dokun Idowu"
                   fill
                   className="object-cover object-top"

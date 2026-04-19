@@ -14,8 +14,8 @@ const STATIC_PHOTOS = [
   { src: "/images/tobore-idowu.jpg",        caption: "Mrs. Tobore Idowu",         sub: "Partner in Ministry",              span: false },
   { src: "/images/ministry-couple.jpg",     caption: "Rev. & Mrs. Idowu",         sub: "Together in the Word",             span: false },
   { src: "/images/family-tobore-son.jpg",   caption: "Mrs. Tobore & Son",         sub: "Family Moments",                   span: false },
+  { src: "/images/pic3.jpeg",               caption: "Rev. Dokun Idowu",           sub: "Joy in Ministry",                  span: false },
   { src: "/images/ministry-graduation.jpg", caption: "Rhema Graduation",          sub: "Raising Kingdom ministers",        span: false },
-  { src: null,                              caption: "Family Portrait",            sub: "Upload via CMS",                   span: false },
 ];
 
 export default function FamilySection({ photos }: { photos?: FamilyPhoto[] }) {

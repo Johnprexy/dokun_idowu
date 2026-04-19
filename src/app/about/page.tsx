@@ -19,7 +19,7 @@ export default function AboutPage() {
         {/* Page hero */}
         <div className="relative bg-mahogany pt-36 pb-20 px-6 lg:px-12 overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="/images/pastor-dokun.jpg" alt="" fill className="object-cover object-[center_15%] opacity-20" />
+            <Image src="/images/hero-image.jpeg" alt="" fill className="object-cover object-[center_15%] opacity-20" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(42,27,18,0.85), rgba(42,27,18,0.95))" }} />
           </div>
           <div className="relative z-10 max-w-4xl mx-auto">

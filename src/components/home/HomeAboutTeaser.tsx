@@ -17,10 +17,10 @@ export default function HomeAboutTeaser() {
           >
             <div className="relative aspect-[4/5] lg:aspect-auto lg:h-full min-h-[480px] overflow-hidden">
               <Image
-                src="/images/pastor-dokun.jpg"
+                src="/images/p4.jpeg"
                 alt="Rev. Dokun Idowu"
                 fill
-                className="object-cover object-[center_15%]"
+                className="object-cover object-center"
               />
               {/* Gradient right edge */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-parchment hidden lg:block" style={{ background: "linear-gradient(to right, transparent 70%, #F5EFE0)" }} />
